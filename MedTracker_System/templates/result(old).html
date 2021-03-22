@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+   <body>
+      <p> Output displayed as a table: </p>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+      </table>
+	  <p> &nbsp </p>
+	  <table border = 2>
+			<colgroup>
+				<col style="background-color: lightgray">
+				<col style="background-color: yellow">
+			</colgroup>
+            <tr>
+               <th> Student Name </th>
+               <td> {{ result.get('Name') }} </td>
+			</tr>
+			<tr>
+			   <th> Physics </th>
+               <td> {{ result.get('Physics') }} </td
+			</tr>
+			<tr>
+			   <th> Chemistry </th>
+               <td> {{ result.get('chemistry') }} </td
+			</tr>
+			<tr>
+			   <th> Mathematics </th>
+               <td> {{ result.get('Mathematics') }} </td
+            </tr>
+      </table>
+	  <p> Output of result item {{ result.get('Name') }}  </p>
+	  <p> &nbsp </p>
+	  <p> Output displayed as plain text: </p>
+	  {% for key, value in result.items() %}
+          <p> {{ key }}      {{ value }} </p>
+      {% endfor %}
+	  <p> &nbsp </p>
+	  <p> Single field output displayed as text: </p>
+	  <p>  The Name identified is {{ retname }} </p>
+   </body>
+</html>

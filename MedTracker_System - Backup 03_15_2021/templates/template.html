@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>MedTracker Parent Template</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
+   <style type="text/css">
+           body { background-color: LightGray;}
+   </style>
+      
+ </head>
+ <body>
+    <header>
+      <div class="container">
+        <p><h1 class="logo">
+		<img src="static/images/MTLogo.png" width="300" height="220" alt="MT Logo" />MedTracker System</h1></p>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+			<li><a href="{{ url_for('patient') }}">New patient</a></li>
+			<li><a href="{{ url_for('user') }}">New user</a></li>
+			<li><a href="{{ url_for('inventory') }}">New inventory</a></li>
+			<li><a href="{{ url_for('dispensed') }}">New dispensed</a></li>
+			<li><a href="{{ url_for('user_report') }}">User(Nurse) Report</a></li>
+			<li><a href="{{ url_for('inventory_report') }}">Inventory Report</a></li>
+			<li><a href="{{ url_for('patient_report') }}">Patient Report</a></li>
+			<li><a href="{{ url_for('dispensed_report') }}">Dispensed Report</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+	
+    {% block content %}
+    {% endblock %}
+
+ </body>
+</html>

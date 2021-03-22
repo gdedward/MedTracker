@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Posted Record</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+	
+    <h1> Record Posted to Database</h1>
+	
+      <p> Output displayed as a table: </p>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+		 
+      </table>
+	  <p> &nbsp </p>
+	  <table border = 2>
+			<colgroup>
+				<col style="background-color: lightgray">
+				<col style="background-color: yellow">
+			</colgroup>
+            <tr>
+               <th> Nurse ID </th>
+               <td> {{ result.get('Nurse_ID') }} </td>
+			</tr>
+			<tr>
+			   <th> Brand Name </th>
+               <td> {{ result.get('BRAND_NAME') }} </td>
+			</tr>
+			<tr>
+			   <th> Date Purchased </th>
+               <td> {{ result.get('DATE_PURCHASED') }} </td>
+			</tr>
+			<tr>
+			   <th> Supplier </th>
+               <td> {{ result.get('Supplier') }} </td>
+            </tr>
+      </table>
+	  
+	  
+	  {% endblock %}
+   </body>
+</html>

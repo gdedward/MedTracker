@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Posted Record</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+	
+    <h1> Record Posted to Database</h1>
+	
+      <p> Output displayed as a table: </p>
+      <table border = 1>
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td> {{ value }} </td>
+            </tr>
+         {% endfor %}
+		 
+      </table>
+	  <p> &nbsp </p>
+	  
+	  
+	  {% endblock %}
+   </body>
+</html>

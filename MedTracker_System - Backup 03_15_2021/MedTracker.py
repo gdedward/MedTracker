@@ -26,38 +26,6 @@ def database_read(sql):
 		
 	return records
 	
-def database_insert(sql):
-	try:
-		mydb=mysql.connector.connect(
-		host="35.186.182.130",
-		user="program",
-		passwd="MedTracker",
-		database="MedTracker"
-            )
-	except mysql.connector.Error as e:
-		print("Error Code:",e.errno," ",e.sqlstate," ",e.msg)
-		print("Database Error")
-		sys.exit()
-    
-	mycursor = mydb.cursor()
-
-	try:
-		print ('Attempting SQL Insert now >> ' + sql)
-		mycursor.execute(sql)
-		mydb.commit()
-		insert_results = []
-			  
-	except mysql.connector.IntegrityError as err:
-		print(err.errno)
-		print(err.sqlstate)
-		print(err.msg)
-		insert_results=[err.errno, err.sqlstate, err.msg]
-
-	mycursor.close()
-	mydb.close()
-
-	return insert_results
-	
 	
 app = Flask(__name__)
 
@@ -101,27 +69,8 @@ def result():
 def user_result():
     if request.method == 'POST':
         result = request.form
-        f1 = request.form['Nurse_ID']
-        f2 = request.form['Nurse_FirstName']
-        f3 = request.form['Nurse_LastName']
-        f4 = request.form['Email']
-        f5 = request.form['PhoneNumber']
-        f6 = request.form['Job_Title']
-        record = f1 + ", '" + f2 + "','" + f3 + "','" + f4 + "'," + f5 + ",'" + f6 + "'"
-        print ('<<< Record looks like this >>>>')
-        print (record)
-        #   This is an example of how the SQL should look......
-        #sql = "insert into USERS VALUES (1906, 'Ruth', 'Gender', 'MG@gmail.com', 3045557862, 'Nurse');"
-        sql = "insert into USERS VALUES (" + record + ");"		
-        data = database_insert(sql)
-        print (data)
-        if not data:
-            print (result)
-            return render_template("user_result.html",result = result)
-        elif data[0] == 1062:
-            print ('Duplicate Record Error on INSERT')
-            print (result)
-            return 'Duplicate record Entered'
+        print (result)
+        return render_template("user_result.html",result = result)
     else:
         return 'No values available'
 @app.route("/inventory_result",methods = ['POST', 'GET'])
