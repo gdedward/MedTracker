@@ -128,10 +128,32 @@ def user_result():
 def inventory_result():
     if request.method == 'POST':
         result = request.form
-        print (result)
-        return render_template("inventory_result.html",result = result)
+        f1 = request.form['INVNT_ID']
+        f2 = request.form['INVNT_NAME']
+        f3 = request.form['BRAND_NAME']
+        f4 = request.form['PRODUCT_TYPE']
+        f5 = request.form['QUANTITY']
+        f6 = request.form['DATE_PURCHASED']
+        f7 = request.form['EXPIRATION_DATE']
+        f8 = request.form['SUPPLIER']
+        f9 = request.form['PRODUCT_DESCRIPTION']
+        f10 = request.form['BARCODE_NUMBER']
+        record = f1 + " , '" + f2 + "','" + f3 + "','" + f4 + "','" + f5 + "','" + f6 + "','" + f7 + "','" + f8 + "','" + f9 + "','" + f10 + "'"
+        print ('<<< Record looks like this >>>>')
+        print (record)
+        sql = "insert into INVENTORY VALUES (" + record + ");"		
+        data = database_insert(sql)
+        print (data)
+        if not data:
+            print (result)
+            return render_template("inventory_result.html",result = result)
+        elif data[0] == 1062:
+            print ('Duplicate Record Error on INSERT')
+            print (result)
+            return 'Duplicate record Entered'
     else:
         return 'No values available'
+        print (result)
 @app.route("/patient_result",methods = ['POST', 'GET'])
 def patient_result():
     if request.method == 'POST':
