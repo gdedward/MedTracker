@@ -2,27 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>User Report</title>
+    <title>Inventory Report</title>
   </head>
   <body>
     {% extends "template.html" %}
     {% block content %}
 	
-    <h1>Patient Report</h1>
+    <h1> Inventory Report</h1>
 	
-      <p> Patient Listing Report: </p>
+      <p> Inventory Listing Report: </p>
 	  
 	  <table border = 1>
 			<colgroup>
 				<col style="background-color: lightgray">
 			<tr>
-               <th> Student Number </th>
-               <td> Student First Name  </td>
-			   <td> Student Last Name </td>
-			   <td> Student School ID Number </td>
-			   <td> Student Phone Number </td>
-			   <td> Student Email </td>
-			   <td> Student Address </td>
+               <th> Inventory ID </th>
+               <td> Inventory Name  </td>
+			   <td> Brand Name </td>
+			   <td> Product Type </td>
+			   <td> Quantity </td>
+			   <td> Date Purchased </td>
+         <td> Expiration Date</td>
+         <td> Supplier</td>
+         <td> Product Description</td>
+         <td> Barcode Number</td>
             </tr>
          {% for data in result %}
             <tr>
@@ -32,7 +35,10 @@
 			   <td> {{ data[3] }} </td>
 			   <td> {{ data[4] }} </td>
 			   <td> {{ data[5] }} </td>
-			   <td> {{ data[6] }} </td>
+         <td> {{ data[6] }} </td>
+			   <td> {{ data[7] }} </td>
+			   <td> {{ data[8] }} </td>
+			   <td> {{ data[9] }} </td>
             </tr>
          {% endfor %}
 		  

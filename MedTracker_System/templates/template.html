@@ -5,7 +5,7 @@
    <title>MedTracker Parent Template</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/template.css') }}">
    <style type="text/css">
-           body { background-color: LightGray;}
+           body { background-color: aliceblue;}
    </style>
       
  </head>
@@ -13,21 +13,45 @@
     <header>
       <div class="container">
         <p><h1 class="logo">
-		<img src="static/images/MTLogo.png" width="300" height="220" alt="MT Logo" />MedTracker System</h1></p>
-        <strong><nav>
-          <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
-			<li><a href="{{ url_for('patient') }}">New patient</a></li>
-			<li><a href="{{ url_for('user') }}">New user</a></li>
-			<li><a href="{{ url_for('inventory') }}">New inventory</a></li>
-			<li><a href="{{ url_for('dispensed') }}">New dispensed</a></li>
-			<li><a href="{{ url_for('user_report') }}">User(Nurse) Report</a></li>
-			<li><a href="{{ url_for('inventory_report') }}">Inventory Report</a></li>
-			<li><a href="{{ url_for('patient_report') }}">Patient Report</a></li>
-			<li><a href="{{ url_for('dispensed_report') }}">Dispensed Report</a></li>
-          </ul>
-        </nav></strong>
+		<img src="static/images/MTLogo.png" width="225" height="165" alt="MT Logo" />MedTracker System</h1></p>
+        
+		<table border = 0>
+			<colgroup>
+				<col style="background-color: lightblue">
+				<col style="background-color: lightblue">
+				<col style="background-color: lightblue">
+			</colgroup>
+			<tr>
+			   <th>   ___________________________             </th>
+			   <th>   __________MENU_____________             </th>
+			   <th>   ___________________________             </th>
+            </tr>
+            <tr>
+               <th> <a href="{{ url_for('home') }}">Home</a> </th>
+               <th> <a href="{{ url_for('patient') }}">New patient</a> </th>
+			   <th> <a href="{{ url_for('patient_report') }}">Patient Report</a> </th>
+			</tr>
+			<tr>
+			   <th> <a href="{{ url_for('about') }}">About</a> </th>
+               <th> <a href="{{ url_for('user') }}">New user</a> </th>
+			   <th> <a href="{{ url_for('user_report') }}">User(Nurse) Report</a> </th>
+			</tr>
+			<tr>
+			   <th> <a href="{{ url_for('privacy') }}">Privacy</a> </th>
+               <th> <a href="{{ url_for('inventory') }}">New inventory</a> </th>
+			   <th> <a href="{{ url_for('inventory_report') }}">Inventory Report</a> </th>
+			</tr>
+			<tr>
+			   <th>      </th>
+               <th> <a href="{{ url_for('dispensed') }}">New dispensed</a> </th>
+			   <th> <a href="{{ url_for('dispensed_report') }}">Dispensed Report</a> </th>
+            </tr>
+			<tr>
+			   <th>   ___________________________             </th>
+			   <th>   ___________________________             </th>
+			   <th>   ___________________________             </th>
+            </tr>
+		</table>
       </div>
     </header>
 	

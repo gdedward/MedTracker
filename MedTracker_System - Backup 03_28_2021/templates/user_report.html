@@ -8,21 +8,20 @@
     {% extends "template.html" %}
     {% block content %}
 	
-    <h1>Patient Report</h1>
+    <h1> Users (Nurse) Report</h1>
 	
-      <p> Patient Listing Report: </p>
+      <p> User Nurse Listing Report: </p>
 	  
 	  <table border = 1>
 			<colgroup>
 				<col style="background-color: lightgray">
 			<tr>
-               <th> Student Number </th>
-               <td> Student First Name  </td>
-			   <td> Student Last Name </td>
-			   <td> Student School ID Number </td>
-			   <td> Student Phone Number </td>
-			   <td> Student Email </td>
-			   <td> Student Address </td>
+               <th> Nurse ID </th>
+               <td> First Name  </td>
+			   <td> Last Name </td>
+			   <td> EMail </td>
+			   <td> Phone Number </td>
+			   <td> Title </td>
             </tr>
          {% for data in result %}
             <tr>
@@ -32,7 +31,6 @@
 			   <td> {{ data[3] }} </td>
 			   <td> {{ data[4] }} </td>
 			   <td> {{ data[5] }} </td>
-			   <td> {{ data[6] }} </td>
             </tr>
          {% endfor %}
 		  
