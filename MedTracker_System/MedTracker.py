@@ -79,7 +79,7 @@ def patient():
 
 @app.route("/user")
 def user():
-	return render_template("user.html")
+    return render_template("user.html")
 
 @app.route("/inventory")
 def inventory():
